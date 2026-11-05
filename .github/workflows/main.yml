@@ -1,0 +1,27 @@
+yaml
+name: Build Windows EXE
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Build Windows EXE
+        run: ./gradlew packageExe
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Photos-Windows
+          path: build/compose/binaries/main/app/Photos/
