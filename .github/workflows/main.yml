@@ -1,6 +1,8 @@
 yaml
-name: Build Windows EXE
+name:Build Windows EXE
+
 on: [push]
+
 jobs:
   build:
     runs-on: windows-latest
@@ -14,6 +16,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
+
       - name: Build Windows EXE
         run: ./gradlew packageExe
 
