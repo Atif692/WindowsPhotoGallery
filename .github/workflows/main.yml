@@ -1,5 +1,5 @@
 yaml
-name: Build Windows EXE
+name:Build Windows EXE
 
 on: [push]
 
